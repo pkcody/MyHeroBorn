@@ -6,11 +6,11 @@ public class JumpBoostBehavior : MonoBehaviour
 {
     public float JumpForce = 5f;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.name == "Player")
+        if (collider.gameObject.name == "Player")
         {
-            Rigidbody _rb = collision.gameObject.GetComponent<Rigidbody>();
+            Rigidbody _rb = collider.gameObject.GetComponent<Rigidbody>();
             PickUpJump(_rb);
         }
     }
@@ -21,6 +21,6 @@ public class JumpBoostBehavior : MonoBehaviour
         Debug.Log("Jump Boost!");
         Debug.Log(_rb.gameObject.name);
         _rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
-        Destroy(gameObject);
+        Destroy(this.transform.parent.gameObject);
     }
 }

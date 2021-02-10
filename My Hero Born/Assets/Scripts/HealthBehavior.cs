@@ -5,9 +5,9 @@ using UnityEngine;
 public class HealthBehavior : MonoBehaviour
 {
     public float addHealth = 5;
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.name == "Player")
+        if (collider.gameObject.name == "Player")
         {
             GameBehavior gb = FindObjectOfType<GameBehavior>();
             PickUpHealth(gb);
@@ -17,7 +17,7 @@ public class HealthBehavior : MonoBehaviour
         {
             gb.HP += 5;
             Debug.Log("picked up health");
-            Destroy(gameObject);
+            Destroy(this.transform.parent.gameObject);
         }
     }
 }
