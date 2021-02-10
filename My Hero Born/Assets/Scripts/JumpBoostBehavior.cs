@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JumpBoostBehavior : MonoBehaviour
 {
-    public float JumpForce = 500f;
+    public float JumpForce = 5f;
 
     void OnCollisionEnter(Collision collision)
     {

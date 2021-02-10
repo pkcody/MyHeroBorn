@@ -9,13 +9,15 @@ public class HealthBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-
-            PickUpHealth();
+            GameBehavior gb = FindObjectOfType<GameBehavior>();
+            PickUpHealth(gb);
         }
 
-    void PickUpHealth()
+    void PickUpHealth(GameBehavior gb)
         {
+            gb.HP += 5;
             Debug.Log("picked up health");
+            Destroy(gameObject);
         }
     }
 }

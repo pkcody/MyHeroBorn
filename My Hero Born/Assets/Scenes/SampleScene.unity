@@ -2038,6 +2038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed9723160e627b46a1656a46a2ce275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpForce: 15
 --- !u!65 &710368659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13217,6 +13218,7 @@ GameObject:
   - component: {fileID: 1631614779}
   - component: {fileID: 1631614780}
   - component: {fileID: 1631614781}
+  - component: {fileID: 1631614782}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -13272,6 +13274,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1631614782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631614778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1590a64821277a499d195ff7d191d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addHealth: 5
 --- !u!1 &1710705744
 GameObject:
   m_ObjectHideFlags: 0
