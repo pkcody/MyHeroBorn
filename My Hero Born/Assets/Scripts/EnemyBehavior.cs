@@ -8,6 +8,7 @@ public class EnemyBehavior : MonoBehaviour
     public Transform player;
     public Transform patrolRoute;
     public List<Transform> locations;
+    public int damage = 1;
 
     private int locationIndex = 0;
     private NavMeshAgent agent;
@@ -79,7 +80,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Bullet(Clone)")
         {
-            EnemyLives -= 1;
+            EnemyLives -= damage;
             Debug.Log("Critical hit!");
         }
     }

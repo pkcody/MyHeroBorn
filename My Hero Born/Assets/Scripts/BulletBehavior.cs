@@ -10,10 +10,4 @@ public class BulletBehavior : MonoBehaviour
     {
         Destroy(this.gameObject, onscreenDelay);
     }
-
-    
-    //void Update()
-   // {
-        
-  //  }
 }
