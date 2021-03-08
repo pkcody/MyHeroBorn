@@ -4,25 +4,38 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
-    //1
     public Vector3 camOffset = new Vector3(0f, 1.2f, -2.6f);
+    public Vector3 camOffsetTwo = new Vector3(0f, 1f, .5f);
 
-    //2
     private Transform target;
+    private int camMode;
 
     void Start()
     {
-        //3
         target = GameObject.Find("Player").transform;
     }
 
-    //4
     void LateUpdate()
     {
-        //5
-        this.transform.position = target.TransformPoint(camOffset);
-
-        //6
-        this.transform.LookAt(target);
+        if (Input.GetButtonDown("Camera"))
+        {
+            if (camMode == 1)
+            {
+                camMode = 0;
+            }
+            else
+            {
+                camMode += 1;
+            }
+        }
+        if (camMode == 0)
+        {
+            this.transform.position = target.TransformPoint(camOffset);
+            this.transform.LookAt(target);
+        }
+        if (camMode == 1)
+        {
+            this.transform.position = target.TransformPoint(camOffsetTwo);
+        }
     }
 }

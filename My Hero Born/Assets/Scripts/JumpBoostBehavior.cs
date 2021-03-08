@@ -11,13 +11,15 @@ public class JumpBoostBehavior : MonoBehaviour
         if (collider.gameObject.name == "Player")
         {
             Rigidbody _rb = collider.gameObject.GetComponent<Rigidbody>();
-            PickUpJump(_rb);
+            GameBehavior gb = FindObjectOfType<GameBehavior>();
+            PickUpJump(_rb, gb);
         }
     }
 
   
-    void PickUpJump(Rigidbody _rb)
+    void PickUpJump(Rigidbody _rb, GameBehavior gb)
     {
+        gb.labelText = "Jump Boosted!";
         Debug.Log("Jump Boost!");
         Debug.Log(_rb.gameObject.name);
         _rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);

@@ -9,13 +9,15 @@ public class AmmoBehavior : MonoBehaviour
         if (collider.gameObject.name == "Player")
         {
             EnemyBehavior eb = FindObjectOfType<EnemyBehavior>();
-            PickUpXAmmo(eb);
+            GameBehavior gb = FindObjectOfType<GameBehavior>();
+            PickUpXAmmo(eb, gb);
         }
     }
 
-    void PickUpXAmmo(EnemyBehavior eb)
+    void PickUpXAmmo(EnemyBehavior eb, GameBehavior gb)
     {
         eb.damage += 4;
+        gb.labelText = "Super Ammo! One shot destroy :)";
         Debug.Log("Super Ammo!");
         Debug.Log(eb.gameObject.name);
         Destroy(this.transform.parent.gameObject);

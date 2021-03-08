@@ -16,6 +16,7 @@ public class HealthBehavior : MonoBehaviour
     void PickUpHealth(GameBehavior gb)
         {
             gb.HP += 5;
+            gb.labelText = "5 Health Added!";
             Debug.Log("picked up health");
             Destroy(this.transform.parent.gameObject);
         }
