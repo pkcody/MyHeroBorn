@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,8 @@ using CustomExtensions;
 public class GameBehavior : MonoBehaviour, IManager
 {
     private string _state;
+
+    public int winLoss;
 
     public Stack<string> lootStack = new Stack<string>();
     public string State
@@ -32,7 +35,9 @@ public class GameBehavior : MonoBehaviour, IManager
             if (_itemsCollected >= maxItems)
             {
                 labelText = "You've found all the items!";
-                showWinScreen = true;
+                SceneManager.LoadScene(2);
+                winLoss = 1;
+                // showWinScreen = true;
                 Time.timeScale = 0f;
             }
             else
@@ -52,16 +57,12 @@ public class GameBehavior : MonoBehaviour, IManager
             if (_playerHP <= 0)
             {
                 labelText = "You want another life with that?";
-                showLossScreen = true;
+                SceneManager.LoadScene(2);
+                winLoss = 0;
+                // showLossScreen = true;
                 Time.timeScale = 0;
             }
         }
-    }
-
-    void RestartLevel()
-    {
-        SceneManager.LoadScene(0);
-        Time.timeScale = 1.0f;
     }
 
     void Start()
@@ -108,7 +109,7 @@ public class GameBehavior : MonoBehaviour, IManager
         GUI.Box(new Rect(20, 80, 150, 25), "Toggle Perspective: F");
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 300, 50), labelText);
 
-        if (showWinScreen)
+ /*       if (showWinScreen)
         {
             if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 200, 100), "YOU WON!"))
             {
@@ -135,7 +136,7 @@ public class GameBehavior : MonoBehaviour, IManager
                 }
             }
         }
-    }
+  */  }
     public void PrintLootReport()
     {
         var currentItem = lootStack.Pop();

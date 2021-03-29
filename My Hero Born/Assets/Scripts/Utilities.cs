@@ -24,7 +24,7 @@ public static class Utilities
     {
         if (sceneIndex < 0)
         {
-            throw new System.ArgumentException("Scene index cannot be negativ");
+            throw new System.ArgumentException("Scene index cannot be negative");
         }
         SceneManager.LoadScene(sceneIndex);
         Time.timeScale = 1.0f;
