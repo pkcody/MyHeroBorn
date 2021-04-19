@@ -17,4 +17,13 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(GameBehavior.currentScene);
+    }
+    public void BeginGame(int gameLevel)
+    {
+        SceneManager.LoadScene(gameLevel);
+    }
 }

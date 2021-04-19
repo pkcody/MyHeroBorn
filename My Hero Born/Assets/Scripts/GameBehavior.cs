@@ -7,6 +7,9 @@ using CustomExtensions;
 
 public class GameBehavior : MonoBehaviour, IManager
 {
+    static GameBehavior instance;
+
+    public static int currentScene = 0;
     private string _state;
 
     public int winLoss;
@@ -26,6 +29,15 @@ public class GameBehavior : MonoBehaviour, IManager
     public DebugDelegate debug = Print;
 
     private int _itemsCollected = 0;
+
+    public static GameBehavior Instance
+    {
+        get { return instance; }
+    }
+    void Awake()
+    {
+        currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+    }
     public int Items
     {
         get { return _itemsCollected; }
